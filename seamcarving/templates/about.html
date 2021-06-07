@@ -50,10 +50,10 @@
 <body>
     <!-- navbar -->
     <div class="container">
-        <nav class="navbar sticky-top navbar-expand-lg navbar-dark p-2  mb-4 ">
+        <nav class="navbar navbar-expand-lg navbar-dark  p-2 mb-4 ">
             <div class="container">
 
-                <label class='brand-name'>my website</label>
+                <label class='brand-name'>Seam Carving</label>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -68,7 +68,7 @@
                             <a class="nav-link" href="http://127.0.0.1:8000/about">ABOUT</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">CONTACT</a>
+                            <a class="nav-link" href="http://127.0.0.1:8000/contact">CONTACT</a>
                         </li>
 
                     </ul>
@@ -88,7 +88,7 @@
             Tad knowledge about calculus will be helpful to follow along but is not required. So let’s begin.</br>
             <em>(This article is inspired by a lecture from Grant Sanderson at MIT.)</em>
         </p>
-        <p class="fst-italic">Let’s take a look at this image :-</p>
+        <p class="fst-italic fw-bold">Let’s take a look at this image :-</p>
         <image class="img-thumbnail rounded mb-3" src="{%static 'SeamCraving_before.jpeg'%}" width="300" height="300">
         </image>
         <p class="h6">The painting, done by Salvador Dali, is named “The Persistence of Memory”.
@@ -125,9 +125,19 @@
         </p>
         <p class="h6">1. Identifying interesting parts (i.e. objects) in the picture.</p>
         <p class="h6">2. Identifying pixel paths which can be removed without distorting the picture.</p>
-
-
     </div>
+
+    <footer class="footer mt-5 py-3 bg-dark">
+        <div class="container">
+            <p class="text-muted text-center">Copyright © 2021, All Right Reserved</p>
+            <p class="text-muted text-center">Made with <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+                </svg> by Shivam and Shubham</p>
+        </div>
+    </footer>
+
 
     <!-- Optional JavaScript; choose one of the two! -->
 
