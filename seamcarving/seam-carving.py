@@ -201,47 +201,6 @@ class SeamCarver:
                     output[:, m - 1 - row, c] = image[row, :, c]
         return output
 
-
-    def rotate_mask(self, mask, ccw):
-        m, n = mask.shape
-        output = np.zeros((n, m))
-        if ccw > 0:
-            image_flip = np.fliplr(mask)
-            for row in range(m):
-                output[:, row] = image_flip[row, : ]
-        else:
-            for row in range(m):
-                output[:, m - 1 - row] = mask[row, : ]
-        return output
-
-
-    def delete_seam_on_mask(self, seam_idx):
-        m, n = self.mask.shape
-        output = np.zeros((m, n - 1))
-        for row in range(m):
-            col = seam_idx[row]
-            output[row, : ] = np.delete(self.mask[row, : ], [col])
-        self.mask = np.copy(output)
-
-
-    def add_seam_on_mask(self, seam_idx):
-        m, n = self.mask.shape
-        output = np.zeros((m, n + 1))
-        for row in range(m):
-            col = seam_idx[row]
-            if col == 0:
-                p = np.average(self.mask[row, col: col + 2])
-                output[row, col] = self.mask[row, col]
-                output[row, col + 1] = p
-                output[row, col + 1: ] = self.mask[row, col: ]
-            else:
-                p = np.average(self.mask[row, col - 1: col + 1])
-                output[row, : col] = self.mask[row, : col]
-                output[row, col] = p
-                output[row, col + 1: ] = self.mask[row, col: ]
-        self.mask = np.copy(output)
-
-
     def get_object_dimension(self):
         rows, cols = np.where(self.mask > 0)
         height = np.amax(rows) - np.amin(rows) + 1
