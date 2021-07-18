@@ -272,14 +272,21 @@ if uploaded_file is not None:
     src = np.array(origin)
     src_h, src_w, _ = src.shape
     cap="Uploaded Image. Height="+str(src_h)+ " Width=" + str(src_w)
+    set_h = st.text_input("Enter new Height ",src_h)
+    set_w = st.text_input("Enter new Width ",src_w)
     st.image(image, caption=cap, use_column_width=False)
-    dst = seam_carving.resize(
-        src, (src_w - (0.5*src_w), src_h-(0.5*src_h)),
-        energy_mode='forward',   # Choose from {backward, forward}
-        order='height-first',  # Choose from {width-first, height-first}
-        keep_mask=None
-    )
-    dst_h,dst_w, _ =dst.shape 
-    im = Image.fromarray(dst)
-    result_cap = "Resized Image. Height="+str(dst_h) +" Width=" +str(dst_w)
-    st.image(im, caption=result_cap, use_column_width=False)
+    with st.spinner("Loading"):
+        if set_h and set_w:
+            set_h=int(set_h)
+            set_w=int(set_w)
+            dst = seam_carving.resize(
+                src, (set_w,set_h),
+                energy_mode='forward',   # Choose from {backward, forward}
+                order='height-first',  # Choose from {width-first, height-first}
+                keep_mask=None
+            )
+            dst_h,dst_w, _ =dst.shape 
+            im = Image.fromarray(dst)
+            result_cap = "Resized Image. Height="+str(dst_h) +" Width=" +str(dst_w)
+            st.image(im, caption=result_cap, use_column_width=False)
+    st.success('Done!')
