@@ -273,8 +273,8 @@ if uploaded_file is not None:
     src_h, src_w, _ = src.shape
     cap="Uploaded Image. Height="+str(src_h)+ " Width=" + str(src_w)
     st.image(image, caption=cap, use_column_width=False)
-    set_h = st.text_input("Enter new Height ",src_h)
-    set_w = st.text_input("Enter new Width ",src_w)
+    set_h = st.text_input("Enter new Height ")
+    set_w = st.text_input("Enter new Width ")
     if st.button("Resize"):
         with st.spinner("Loading"):
             if set_h and set_w:
