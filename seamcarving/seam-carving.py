@@ -276,7 +276,8 @@ if uploaded_file is not None:
     set_h = st.text_input("Enter new Height ")
     set_w = st.text_input("Enter new Width ")
     if st.button("Resize"):
-        with st.spinner("Loading"):
+        with st.spinner('''Processing Image! 
+        Applying Algorithm............'''):
             if set_h and set_w:
                 set_h=int(set_h)
                 set_w=int(set_w)
@@ -290,4 +291,4 @@ if uploaded_file is not None:
                 im = Image.fromarray(dst)
                 result_cap = "Resized Image. Height="+str(dst_h) +" Width=" +str(dst_w)
                 st.image(im, caption=result_cap, use_column_width=False)
-        st.success('Done!')
+        st.success('Done! Image is ready')
