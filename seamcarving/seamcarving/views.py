@@ -8,3 +8,5 @@ def about(request):
 
 def contact(request):
     return render(request,'contact.html')    
+def code(request):
+    return render(request,'code.html')
