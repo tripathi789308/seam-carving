@@ -1,5 +1,9 @@
 # seam-carving
 
+# to view the working of the project
+https://drive.google.com/file/d/1HRCD5A9tsNP3PAybYIexJsfUeJRUX_dG/view?usp=sharing
+
+
 # To run this project
 ## go to directory
 ```
